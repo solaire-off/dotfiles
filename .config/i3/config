@@ -13,7 +13,10 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango: System San Francisco Display 8
+
+#font pango:DejaVu Sans Mono 8
+font pango: System San Francisco Display 10
+
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -33,9 +36,10 @@ floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
-bindsym $mod+Shift+Cyrillic_shorti kill
+bindsym $mod+Shift+q kill
 
 
+# NEW COLOR THIS
 
 set $bg-color 	         #2f343f
 set $inactive-bg-color   #2f343f
@@ -43,26 +47,20 @@ set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
 
-#myscripty
-bindsym $mod+Cyrillic_de exec python3  /home/reaper/.scripty1.py
-bindsym $mod+Cyrillic_el exec python3  /home/reaper/.scripty0.py
+# start dmenu (a program launcher)
+#bindsym $mod+d exec dmenu_run -nb '#1f222d'  -sb tomato -l 10
 
 
-# VOT D_MENI TUT !!!!!!!!    start dmenu (a program launcher)
-bindsym $mod+Cyrillic_ve   exec rofi -show run -lines 3 -eh 2 -width 100  -padding 330 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 13"
-
-#exec dmenu_run 
-
-
+bindsym $mod+d exec rofi -show run -lines 5 -eh 2 -width 100 -height 100  -padding 330 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 13" 
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-#bindsym $mod+Cyrillic_o focus left
-#bindsym $mod+Cyrillic_el focus down
-#bindsym $mod+Cyrillic_de focus up
-#bindsym $mod+Cyrillic_zhe focus right
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -71,10 +69,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-#bindsym $mod+Shift+Cyrillic_o move left
-#bindsym $mod+Shift+Cyrillic_el move down
-#bindsym $mod+Shift+Cyrillic_de move up
-#bindsym $mod+Shift+Cyrillic_zhe move right
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -83,18 +81,18 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+Cyrillic_er split h
+bindsym $mod+h split h
 
 # split in vertical orientation
-bindsym $mod+Cyrillic_em split v
+bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+Cyrillic_a fullscreen toggle
+bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+Cyrillic_yeru layout stacking
-bindsym $mod+Cyrillic_tse layout tabbed
-bindsym $mod+Cyrillic_u layout toggle split
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -103,31 +101,15 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+Cyrillic_ef focus parent
+bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
 
-set $base00 #101218
-set $base01 #1f222d
-set $base02 #252936
-set $base03 #7780a1
-set $base04 #C0C5CE
-set $base05 #d1d4e0
-set $base06 #C9CCDB
-set $base07 #ffffff
-set $base08 #ee829f
-set $base09 #f99170
-set $base0A #ffefcc
-set $base0B #a5ffe1
-set $base0C #97e0ff
-set $base0D #97bbf7
-set $base0E #c0b7f9
-set $base0F #fcc09e
 
 
 
-set $workspace1 "1:  FireFox"
+set $workspace1 "1:  Firefox"
 set $workspace2 "2:  Terminals"
 set $workspace3 "3:  Code"
 #set $workspace4 "4:  FM"
@@ -138,7 +120,7 @@ set $workspace7 "7:  Unknown"
 #set $workspace8 "8:  LibreOffice"
 set $workspace8 "8:  Unknown"
 set $workspace9 "9:  Social"
-set $workspace10 "10:  Music"
+set $workspace10 "10:  Music"
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
@@ -167,11 +149,11 @@ bindsym $mod+0 workspace $workspace10
 
 
 # reload the configuration file
-bindsym $mod+Shift+Cyrillic_es reload
+bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+Cyrillic_ka restart
+bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+Cyrillic_u exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -181,10 +163,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym Cyrillic_o resize shrink width 10 px or 10 ppt
-        bindsym Cyrillic_el resize grow height 10 px or 10 ppt
-        bindsym Cyrillic_de resize shrink height 10 px or 10 ppt
-        bindsym Cyrillic_zhe resize grow width 10 px or 10 ppt
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -197,10 +179,26 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+Cyrillic_ka mode "resize"
+bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
+# CUSTOM COLORS
+
+set $base00 #101218
+set $base01 #1f222d
+set $base02 #252936
+set $base03 #7780a1
+set $base04 #C0C5CE
+set $base05 #d1d4e0
+set $base06 #C9CCDB
+set $base07 #ffffff
+set $base08 #ee829f
+set $base09 #f99170
+set $base0A #ffefcc
+set $base0B #a5ffe1
+set $base0C #97e0ff
+set $base0D #97bbf7
+set $base0E #c0b7f9
+set $base0F #fcc09e
 
 
 # Widow Colours
@@ -212,7 +210,8 @@ bindsym $mod+Cyrillic_ka mode "resize"
 
 
 bar {
-        status_command i3blocks 
+        status_command i3blocks -c /home/solaire-off/.i3blocks.conf 
+	#status_command i3status
         tray_output primary
 
        colors {
@@ -229,27 +228,51 @@ bar {
 
 }
 
-exec_always feh --bg-scale /home/reaper/.wall.png
-exec_always compton -f
-exec_always ~/instruments/Telegram/Telegram
-# Program Workspaces
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+#bar {
+#        status_command i3status
+#        tray_output primary
+#}
+
+
+
+
+
+# CUSTOM COMMANDS
+
+bindsym $mod+shift+x exec bash ~/.lock.sh
+
+
+# Background
+
+
+
+exec_always feh --bg-scale /home/solaire-off/.wall.png
+
+# RU EN
+
+exec setxkbmap "us,ru" ",winkeys" "grp:alt_shift_toggle"
+
+# OPACITY
+
+exec_always compton -f --vsync drm
+
+
+
+# WIFI
+
+exec --no-startup-id nm-applet
+
+# For refsresh wifi -- nmcli networking on/off
+
+
+
+# ASSIGN APP TO WORKSPACE
+ 
 assign [class="Firefox"] $workspace1
 assign [class="Atom"] $workspace3 
-assign [class="Spotify"] $workspace10
+assign [class="Deadbeef"] $workspace10
 assign [class="Telegram"] $workspace9
-#assign [class="Thunar"] $workspace4
-#assign [class="libreoffice-math"] $workspace8
-#assign [class="libreoffice-draw"] $workspace8
-#assign [class="libreoffice-impress"] $workspace8
-#assign [class="libreoffice-calc"] $workspace8
-#assign [class="libreoffice-writer"] $workspace8
-#assign [class="libreoffice-startcenter"] $workspace8
 
 
-# Floating
-for_window [class="Gpicview"] floating enable
-for_window [class="Transmission-gtk"] floating enable
-for_window [class="1.py"] floating enable
-for_window [class="tk"] floating enable
-
-#myscripty
